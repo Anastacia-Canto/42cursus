@@ -15,52 +15,113 @@
 #include <unistd.h>
 #include <fcntl.h> 
 
-char	*ft_strchr(const char *s, int c)
+char	*update_content(char *content)
 {
+	int		lenght;
+	char	*updated;
 	int		i;
-	char	b;
 
-	b = c;
-	i = 0;
-	while (s && s[i] && (s[i] != b))
-		i++;
-	if (s[i] == b)
-		return ((char *)s + i);
-	else
+	lenght = 0;
+	while (content[lenght] && content[lenght] != '\n')
+		lenght++;
+	if (!content[lenght])
+	{
+		free(content);
 		return (NULL);
+	}
+	updated = (char *)malloc(sizeof(char) * (ft_strlen(content) - lenght + 1));
+	if (!updated)
+		return (NULL);
+	lenght++;
+	i = 0;
+	while (content[lenght])
+		updated[i++] = content[lenght++];
+	updated[i] = '\0';
+	free(content);
+	return (updated);
+}
+
+char	*ft_get_line(char *content)
+{
+	int		position;
+	int		index;
+	char	*new_line;
+
+	position = 0;
+	if (!content || !content[position])
+		return (NULL);
+	while (content[position] && content[position] != '\n')
+		position++;
+	new_line = (char *)malloc(sizeof(char) * position + 2);
+	if (!new_line)
+		return (NULL);
+	index = 0;
+	while (content[index] && content[index] != '\n')
+	{
+		new_line[index] = content[index];
+		index++;
+	}
+	if (content[index] == '\n')
+	{
+		new_line[index] = content[index];
+		index++;
+	}
+	new_line[index] = '\0';
+	return (new_line);
+}
+
+char	*seek_new_line(char *content, int fd)
+{
+	char	*buff;
+	int		read_bytes;
+
+	buff = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (!buff)
+		return (NULL);
+	read_bytes = 1;
+	while (!ft_strchr(content, '\n') && read_bytes != 0)
+	{
+		read_bytes = read(fd, buff, BUFFER_SIZE);
+		if (read_bytes == -1)
+		{
+			free(buff);
+			return (NULL);
+		}
+		buff[read_bytes] = '\0';
+		content = ft_strjoin(content, buff);
+	}
+	free(buff);
+	return (content);
 }
 
 char	*get_next_line(int fd)
 {
-	static ssize_t	read_bytes;
-	static char		*line;
+	char		*new_line;
+	static char	*content;
 
-	if (fd < 0 || BUFFER_SIZE == 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	line = malloc(sizeof(char *) * BUFFER_SIZE + 1);
-	if (line == NULL)
+	content = seek_new_line(content, fd);
+	if (!content)
 		return (NULL);
-	read_bytes = 1;
-	while (!ft_strchr(line, '\n') && read_bytes != 0)
-	{
-		read_bytes = read(fd, line, BUFFER_SIZE);
-	}
-	line[read_bytes] = '\0';
-	return (line);
+	new_line = ft_get_line(content);
+	content = update_content(content);
+	return (new_line);
 }
 
-int	main()
-{
-	int		fd;
-	char	*line1;
-	char	*line2;
-	char	*line3;
+// int	main(void)
+// {
+// 	int		fd;
+// 	char	*line;
 
-	fd = open("teste.txt", O_RDONLY);
-	line1 = get_next_line(fd);
-	line2 = get_next_line(fd);
-	line3 = get_next_line(fd);
-	printf("linha 1: %s\nlinha 2: %s\nlinha 3: %s\n", line1, line2, line3);
-	close(fd);
-	return (0);
-}
+// 	fd = open("teste.txt", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	while (line)
+// 	{
+// 		printf("%s", line);
+// 		free(line);
+// 		line = get_next_line(fd);
+// 	}
+// 	close(fd);
+// 	return (0);
+// }
