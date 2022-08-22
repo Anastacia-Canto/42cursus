@@ -64,7 +64,7 @@ int	main(void)
 	sigaddset(&block_signal, SIGUSR1);
 	sigaddset(&block_signal, SIGUSR2);
 	action_server.sa_mask = block_signal;
-	action_server.__sigaction_u.__sa_sigaction = &receive_message;
+	action_server.sa_sigaction = &receive_message;
 	action_server.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &action_server, NULL);
 	sigaction(SIGUSR2, &action_server, NULL);
