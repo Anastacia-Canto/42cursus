@@ -21,7 +21,7 @@ int	ft_put_pointer(void *p)
 
 	i = 0;
 	if (p == NULL)
-		i += ft_putstr("0x0");
+		i += ft_putstr("(nil)");
 	else
 	{
 		address = (unsigned long)p;
