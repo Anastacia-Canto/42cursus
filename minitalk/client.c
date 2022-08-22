@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	sigemptyset(&action_client.sa_mask);
-	action_client.__sigaction_u.__sa_handler = &handler;
+	action_client.sa_handler = &handler;
 	if (sigaction(SIGUSR1, &action_client, NULL) == -1)
 	{
 		ft_printf("sigaction failed!\n");
