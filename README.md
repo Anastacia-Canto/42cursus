@@ -2,7 +2,7 @@
 
 <img src="https://img.shields.io/badge/level-2.94-0000FF"> <img src="https://img.shields.io/badge/language-C-00FFFF"> <img src="https://img.shields.io/badge/coalision-Fire_Fawns-A52A2A">
 
-<img src="https://img.shields.io/badge/libft-125-7FFF00"> <img src="https://img.shields.io/badge/ft__printf-100-7FFF00"> <img src="https://img.shields.io/badge/get__next__line-100-7FFF00"> <img src="https://img.shields.io/badge/born2BeRoot-110-7FFF00">
+<img src="https://img.shields.io/badge/libft-125-7FFF00"> <img src="https://img.shields.io/badge/ft__printf-100-7FFF00"> <img src="https://img.shields.io/badge/get__next__line-100-7FFF00"> <img src="https://img.shields.io/badge/born2BeRoot-110-7FFF00"> <img src="https://img.shields.io/badge/Minitalk-125-7FFF00"> <img src="https://img.shields.io/badge/so_long-125-7FFF00">
 
 
 
