@@ -1,3 +1,6 @@
 [submodule "so_long"]
 	path = so_long
 	url = https://github.com/Anastacia-Canto/so_long
+[submodule "push_swap"]
+	path = push_swap
+	url = https://github.com/Anastacia-Canto/push_swap
