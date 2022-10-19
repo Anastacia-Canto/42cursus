@@ -4,3 +4,6 @@
 [submodule "push_swap"]
 	path = push_swap
 	url = https://github.com/Anastacia-Canto/push_swap
+[submodule "philosophers"]
+	path = philosophers
+	url = https://github.com/Anastacia-Canto/philosophers
