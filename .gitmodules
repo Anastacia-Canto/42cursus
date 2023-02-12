@@ -7,3 +7,8 @@
 [submodule "philosophers"]
 	path = philosophers
 	url = https://github.com/Anastacia-Canto/philosophers
+[submodule "minishell"]
+	path = minishell
+	url = https://github.com/Anastacia-Canto/minishell
+
+
