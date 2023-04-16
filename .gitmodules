@@ -13,3 +13,6 @@
 [submodule "minishell"]
 	path = minishell
 	url = https://github.com/Anastacia-Canto/minishell
+[submodule "cub3d"]
+	path = cub3d
+	url = https://github.com/Anastacia-Canto/cub3D
