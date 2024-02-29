@@ -22,3 +22,6 @@
 [submodule "inception"]
 	path = inception
 	url = git@github.com:Anastacia-Canto/inception.git
+[submodule "ft_irc"]
+	path = ft_irc
+	url = git@github.com:Courinha768/ft_irc.git
