@@ -16,3 +16,6 @@
 [submodule "cub3d"]
 	path = cub3d
 	url = https://github.com/Anastacia-Canto/cub3D
+[submodule "cpp_modules"]
+	path = cpp_modules
+	url = git@github.com:Anastacia-Canto/cpp_modules.git
