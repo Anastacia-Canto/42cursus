@@ -1,7 +1,11 @@
 # ft_printf
 
 It is a function that clones the famous printf basic functionalities. It was developed using the [libft](https://github.com/Anastacia-Canto/42cursus/tree/main/libft) tools.
-Is was defined to work with:
+The core of printf is that it is a variadic function, it means it is able to take a variable number of arguments. The first argument is always the format string, with the 
+flags to each type that it contains, then the next arguments are each one of that variables, in the correct order. 
+
+
+It was defined to work with:
 - %c - characters
 - %s - strings
 - %p - void *pointers (in hexadecimal)
@@ -18,3 +22,7 @@ make
 gcc ft_printf.c -L. -lftprintf
 ./a.out
 ```
+
+
+# References: 
+[variadic functions](https://www.geeksforgeeks.org/variadic-functions-in-c/)  
