@@ -7,5 +7,6 @@ and linked list management.
 I used the Linux manuals to discover the description, parameters and returns of each function. To do this we should only 
 type, for example, ``` man strlen; ``` on the terminal to have access to strlen manual. 
 
+It was a very good opportunity to understand how C language works and how important is to know how to deal with memory allocation and management.  
 Several tests were used to make sure the funcionts works as expected and all the possible edge cases were covered. 
 At the end of this project we have our package of tools to use in the next projects. 
